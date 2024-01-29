@@ -102,6 +102,7 @@ void Rover::move_to_position(int x, int y){
     // Trivial case in which the rover is already positioned at the point passed to the function:
     if (x_position == x && y_position == y){
         std::cout << "Oops, I'm already at that position!" << std::endl;
+        std::cout << "=====================================================" << std::endl;
         return;
     }
     
