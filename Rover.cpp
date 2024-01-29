@@ -91,5 +91,42 @@ void Rover::move_down(){
 }
 
 void Rover::say_position(){
-    std::cout << "I am at position: (" << x_position << "," << y_position << ")" << std::endl; 
+    std::cout << "I am at position: (" << x_position << ", " << y_position << ")" << std::endl; 
+}
+
+// Receives an x and y coordinate to move to, and moves the rover to that position
+void Rover::move_to_position(int x, int y){
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "Moving to position: (" << x << ", " << y << ") from position: (" << x_position << ", " << y_position << ")." << std::endl;
+
+    // Trivial case in which the rover is already positioned at the point passed to the function:
+    if (x_position == x && y_position == y){
+        std::cout << "Oops, I'm already at that position!" << std::endl;
+        return;
+    }
+    
+    // Travel right until x-coordinate reached:
+    while (x_position < x){
+        move_right();
+        say_position();
+    }
+    // Travel left until x-coordinate reached:
+    while (x_position > x){
+        move_left();
+        say_position();
+    }
+    // Travel up until y-coordinate reached:
+    while (y_position < y){
+        move_up();
+        say_position();
+    }
+    // Travel down until y-coordinate reached:
+    while (y_position > y){
+        move_down();
+        say_position();
+    }
+
+    std::cout << "I have reached the desired location." << std::endl;
+    std::cout << "=====================================================" << std::endl;
+
 }
