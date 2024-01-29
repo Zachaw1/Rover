@@ -23,5 +23,6 @@ public:
     void say_position();
 
     void move_to_position(int x, int y);
+    void move_more();
 };
 #endif
