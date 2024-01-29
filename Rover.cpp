@@ -161,3 +161,17 @@ void Rover::move_to_position(int x, int y){
     std::cout << "=====================================================" << std::endl;
 
 }
+
+void Rover::move_more() {
+    int new_x;
+    int new_y;
+    std::string input {"Y"};
+    while(input == "Y"){
+        std::cout << "Where should I move? Enter x and y coordinates separated by a space:" << std::endl;
+        std::cin >> new_x >> new_y;
+        move_to_position(new_x, new_y);
+        std::cout << "Should I keep moving (Y/N)?" << std::endl;
+        std::cin >> input;
+    }
+    std::cout << "Got it. I'll stay here." << std::endl;
+}
