@@ -21,5 +21,7 @@ public:
     void move_left();
     void move_down();
     void say_position();
+
+    void move_to_position(int x, int y);
 };
 #endif
