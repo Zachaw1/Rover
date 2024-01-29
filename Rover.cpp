@@ -1,7 +1,8 @@
 #include "Rover.h"
 #include <iostream>
+#include <string>
 
-//Overloaded constructor that takes arguments for the starting position:
+//Overloaded constructor that takes arguments for the starting position
 Rover::Rover(int x_pos, int y_pos) : x_position {x_pos}, y_position {y_pos} {
     std::cout << "Hello. I am your Rover." << std::endl;
     std::cout << "I am starting at position: (" << x_position << "," << y_position << ")" << std::endl; 
@@ -52,10 +53,26 @@ void Rover::say_position(){
 
 // Receives an x and y coordinate to move to, and moves the rover to that position
 void Rover::move_to_position(int x, int y){
+    // Case that the rover is given an invalid location to move to (not on the grid)
+    if (x > 2 || x < -2 || y > 2 || y < -2){
+        std::string input;
+        std::cout << "Oops, you told me to move to the location: (" << x << ", " << y << ")." << std::endl;
+        std::cout << "This location is outside of the grid boundaries! I will stay put until I receive a valid input." << std::endl;
+        std::cout << "Would you like to hear a joke instead? (Y/N)" << std::endl;
+        std::cin >> input;
+        if (input == "Y"){
+            std::cout << "How do you organize a space party?" << std::endl;
+            std::cout << "You planet!" << std::endl;
+        } else {
+            std::cout << ":( boring..." << std::endl;
+        }
+        return;
+    }
+
     std::cout << "=====================================================" << std::endl;
     std::cout << "Moving to position: (" << x << ", " << y << ") from position: (" << x_position << ", " << y_position << ")." << std::endl;
 
-    // Trivial case in which the rover is already positioned at the point passed to the function:
+    // Trivial case in which the rover is already positioned at the point passed to the function
     if (x_position == x && y_position == y){
         std::cout << "Oops, I'm already at that position!" << std::endl;
         std::cout << "=====================================================" << std::endl;
@@ -63,7 +80,7 @@ void Rover::move_to_position(int x, int y){
     }
     
     try { // Try travelling right
-        // Travel right until x-coordinate reached:
+        // Travel right until x-coordinate reached
         while (x_position < x){
             if (x_position + 1 > 2){
                 throw(x_position);
@@ -82,7 +99,7 @@ void Rover::move_to_position(int x, int y){
     }
 
     try { // Try travelling left
-        // Travel left until x-coordinate reached:
+        // Travel left until x-coordinate reached
         while (x_position > x){
             if (x_position - 1 < -2){
                 throw(x_position);
@@ -101,7 +118,7 @@ void Rover::move_to_position(int x, int y){
     }
 
     try { // Try travelling up
-        // Travel up until y-coordinate reached:
+        // Travel up until y-coordinate reached
         while (y_position < y){
             if (y_position + 1 > 2){
                 throw(y_position);
@@ -120,7 +137,7 @@ void Rover::move_to_position(int x, int y){
     }
 
     try { // Try travelling down
-        // Travel down until y-coordinate reached:
+        // Travel down until y-coordinate reached
         while (y_position > y){
             if (y_position - 1 < -2){
                 throw(y_position);
