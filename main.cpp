@@ -6,12 +6,15 @@ int main() {
 
     Rover rover;
 
-    rover.move_to_position(0, 0);
+    rover.move_to_position(3, 0);
+    rover.move_to_position(-3, 0);
+    rover.move_to_position(0, 3);
+    rover.move_to_position(0, -3);
 
-    // rover.move_to_position(3, 3);
-    // rover.move_to_position(-3, -3);
-    // rover.move_to_position(-3, 3);
-    // rover.move_to_position(3, -3);
+    rover.move_to_position(3, 3);
+    rover.move_to_position(-3, -3);
+    rover.move_to_position(-3, 3);
+    rover.move_to_position(3, -3);
     
     // rover.move_to_position(1, 1);
     // rover.move_to_position(-2, -2);
