@@ -162,6 +162,7 @@ void Rover::move_to_position(int x, int y){
 
 }
 
+// Ask the user where to move next
 void Rover::move_more() {
     int new_x;
     int new_y;
